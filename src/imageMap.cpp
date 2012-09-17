@@ -287,14 +287,14 @@ void imageMap::enable(){
     if (isEnabled) {
         return;
     }
-    ofAddListener(ofEvents.mouseReleased,this,&imageMap::mouseReleased);
-    ofAddListener(ofEvents.mousePressed,this,&imageMap::mousePressed);
+    ofAddListener(ofEvents().mouseReleased,this,&imageMap::mouseReleased);
+    ofAddListener(ofEvents().mousePressed,this,&imageMap::mousePressed);
     isEnabled = true;
 }
 
 void imageMap::disable(){
-    ofRemoveListener(ofEvents.mouseReleased,this,&imageMap::mouseReleased);
-    ofRemoveListener(ofEvents.mousePressed,this,&imageMap::mousePressed);
+    ofRemoveListener(ofEvents().mouseReleased,this,&imageMap::mouseReleased);
+    ofRemoveListener(ofEvents().mousePressed,this,&imageMap::mousePressed);
     isEnabled = false;
 
     
