@@ -15,6 +15,7 @@ imageMap::imageMap(){
     isToggle = false;
     isEnabled = false;
     lastActiveToggleButton = 0;    
+	scale = 1;
 }
 
 imageMap::~imageMap(){
@@ -191,10 +192,7 @@ void imageMap::handleToggleRelease(ofMouseEventArgs& args){
         bool hasHit=false;
         
         for (vector<mapItem>::iterator it= boxes.begin(); it < boxes.end(); ++it) {
-            
-            ofRectangle translated = *it;
-            translated.x += position.x;
-            translated.y += position.y;
+            ofRectangle translated = translateToWorldCord(*it);
             
             if(translated.inside(ofVec2f(args.x,args.y)) && it->pressing)
             {
@@ -223,9 +221,7 @@ void imageMap::handleToggleRelease(ofMouseEventArgs& args){
     
     void imageMap::handleNormalRelease(ofMouseEventArgs& args){
         for (vector<mapItem>::iterator it= boxes.begin(); it < boxes.end(); ++it) {
-            ofRectangle translated = *it;
-            translated.x += position.x;
-            translated.y += position.y;
+            ofRectangle translated = translateToWorldCord(*it);
             
             if(translated.inside(ofVec2f(args.x,args.y)) && it->pressing)
             {
@@ -236,18 +232,39 @@ void imageMap::handleToggleRelease(ofMouseEventArgs& args){
         rebuildMesh(); 
     }
 
+
+
+	ofRectangle imageMap::translateToWorldCord(ofRectangle rect){
+			ofRectangle translated = rect;
+			translated.x *= scale;
+			translated.y *= scale;
+			translated.width *= scale;
+			translated.height *= scale;
+
+			translated.x += position.x;
+			translated.y += position.y;
+
+			return translated;
+	
+	}
+
 void imageMap::mousePressed(ofMouseEventArgs& args){
     bool doRebuildMesh = false;
     
     for (vector<mapItem>::iterator it= boxes.begin(); it < boxes.end(); ++it) {
-        ofRectangle translated = *it;
-        translated.x += position.x;
-        translated.y += position.y;
+        ofRectangle translated = translateToWorldCord(*it);
         
         if(translated.inside(ofVec2f(args.x,args.y)))
            {               
                it->pressing = true;
                doRebuildMesh = true;
+
+		//	   cout << args.x << ":" << args.y << "\n";
+		//	   		cout << translated.x << ": trans x" << (position.x * scale) << "\n";
+		//cout << translated.y << "\n";
+
+		//cout << "******************************\n\n";
+
            }
     }
     
@@ -266,7 +283,8 @@ string imageMap::getImageFileName(){
 void imageMap::draw(){
     ofSetColor(255);
     ofPushMatrix();
-    ofTranslate(position);
+		ofTranslate(position);
+		ofScale(scale,scale);
         mapTexture.bind();
         mapMesh.draw();
         mapTexture.unbind();
