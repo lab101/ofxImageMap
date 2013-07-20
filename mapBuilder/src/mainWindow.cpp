@@ -8,23 +8,27 @@ void mainWindow::setup(){
     ofEnableAlphaBlending();
     
    
-    config.setup(0,0,"config.xml", "config.png",true);
+    config.setup(0,0,"config.png",true);
     ofAddListener(config.onClick,this,&mainWindow::configClicked);
     
     configAreaOffset.set(10, 100);
     
-    map.setup(configAreaOffset.x,configAreaOffset.y,"keyboard.xml", "keyboard.png",true);
+    map.setup(configAreaOffset.x,configAreaOffset.y, "keyboard.png",true);
+    map.setPosition(configAreaOffset);
     ofAddListener(map.onClick,this,&mainWindow::clicked);
     
     currentState = TEST;
     
     txtCommand.set(650, 24, 200, 20);
     selectedCommand = 0;
+    
+    debugTxt = "";
 
 }
 
 
 void mainWindow::clicked(string &args){
+    debugTxt = "clicked on: " + args;
 //    cout << args;
    // cout << *args;
 }
@@ -32,15 +36,19 @@ void mainWindow::clicked(string &args){
 void mainWindow::configClicked(string &args){
         if(args == "REMOVE")
         {
+            activeRectangle.set(0, 0, 0, 0);
             currentState = REMOVE;
             map.disable();
 
         }else if(args == "CONFIG"){
+            activeRectangle.set(0, 0, 0, 0);
             currentState = CONFIG;
             map.disable();
 
         } else if(args == "TEST"){
+            activeRectangle.set(0, 0, 0, 0);
             currentState = TEST;
+            map.rebuildMesh();
             map.enable();
         }else if(args == "SAVE")
         {
@@ -59,17 +67,28 @@ void mainWindow::update(){
 //--------------------------------------------------------------
 void mainWindow::draw(){
    
+    // draw config bar background lines
+    ofSetColor(120, 120, 120);
+    ofRect(0, 0, ofGetWidth(), 70);
+    ofSetColor(20, 20, 20);
+    ofRect(0, 70, ofGetWidth(), 3);
+    ofSetColor(255, 255, 255);
+    
     config.draw();
 
     if (currentState == CONFIG || currentState == REMOVE) {
         map.drawFullImage();
     }else if(currentState == TEST){
         map.draw();
+        ofDrawBitmapString(debugTxt, ofVec2f(750,58));
+
         return;
     }
     
     
+    // Draw config boxes
     ofPushMatrix();
+    
     ofTranslate(configAreaOffset);
     for (int i=0; i < map.boxes.size(); i++) {
         ofFill();
@@ -94,9 +113,11 @@ void mainWindow::draw(){
     ofSetColor(0);
     ofDrawBitmapString("command:", ofVec2f(650,18));
 
-    ofSetColor(0, 255, 255);
-    ofNoFill();
-    ofRect(activeRectangle);
+    if(activeRectangle.width > 0 && activeRectangle.height > 0){
+        ofSetColor(0, 255, 255);
+        ofNoFill();
+        ofRect(activeRectangle);
+    }
     
     //txt stuff
     ofFill();
@@ -137,9 +158,10 @@ void mainWindow::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void mainWindow::mouseDragged(int x, int y, int button){
-    if (currentState == TEST) {
+    if (currentState != CONFIG) {
         return;
     }
+    
     activeRectangle.width = x - activeRectangle.x;
     activeRectangle.height = y - activeRectangle.y;
 }
@@ -150,7 +172,7 @@ void mainWindow::mousePressed(int x, int y, int button){
         return;
     }else if(currentState == CONFIG)
     {
-        cout << "recording\n" ;
+        cout << "recording" << endl ;
 
         activeRectangle.set(x , y, 0, 0);
     }
@@ -158,18 +180,16 @@ void mainWindow::mousePressed(int x, int y, int button){
 
 //--------------------------------------------------------------
 void mainWindow::mouseReleased(int x, int y, int button){
-    cout << "released " << currentState << "\n";
-    if (currentState == TEST) {
-        return;
-    }else if(currentState == REMOVE)
+  if(currentState == REMOVE)
     {
-        for (int i=0; i < map.boxes.size(); i++) {
-            ofRectangle translated = map.boxes[i];
+        for(vector<mapItem>::iterator it =map.boxes.begin();it != map.boxes.end();++it)
+        {
+            ofRectangle translated = *it;
             translated.x += configAreaOffset.x;
             translated.y += configAreaOffset.y;
 
             if(translated.inside(x,y)){
-                map.boxes.erase(map.boxes.begin() + i);
+                it = map.boxes.erase(it);
                 selectedCommand = 0;
                 return;
             }        
@@ -220,13 +240,11 @@ void mainWindow::dragEvent(ofDragInfo dragInfo){
     
     for (int i=0; i < dragInfo.files.size(); i++) {
         string filename = dragInfo.files[i];
-        if (filename.find(".xml") != string::npos) {
-            cout << "loading xml :" << filename;
-            map.loadXML(filename);
-        }
         if (filename.find(".png") != string::npos || filename.find(".jpg") != string::npos) {
-            cout << "loading image :" << filename;
-            map.loadImage(filename);
+            cout << "loading image :" << filename << endl;
+            currentState = CONFIG;
+            selectedCommand = 0;
+            map.loadFromImage(filename);
         }
     }
 }

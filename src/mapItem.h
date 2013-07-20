@@ -13,7 +13,8 @@ class mapItem : public ofRectangle
 {
 public:
     string command;  
-    bool pressing;
+    bool isPressed;
+    bool isToggle;
 };
 
 #endif

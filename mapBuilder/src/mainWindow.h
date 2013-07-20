@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "imageMap.h"
+#include "ofxImageMap.h"
 
 
 class mainWindow : public ofBaseApp{
@@ -25,8 +25,8 @@ class mainWindow : public ofBaseApp{
         void configClicked(string &args);
    
 private:
-    imageMap map;
-    imageMap config;
+    ofxImageMap map;
+    ofxImageMap config;
     
 	ofxXmlSettings XML;
     mapItem activeRectangle;
@@ -37,5 +37,7 @@ private:
     
     ofRectangle txtCommand;
     string* selectedCommand;
+    
+    string debugTxt;
 
 };

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01A1110D15911B0E001423A9 /* imageMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01A1110A15911B0E001423A9 /* imageMap.cpp */; };
 		01AF056D1510E004005F28FF /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AF05661510E004005F28FF /* tinyxml.cpp */; };
 		01AF056E1510E004005F28FF /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AF05681510E004005F28FF /* tinyxmlerror.cpp */; };
 		01AF056F1510E004005F28FF /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AF05691510E004005F28FF /* tinyxmlparser.cpp */; };
 		01AF05701510E004005F28FF /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01AF056B1510E004005F28FF /* ofxXmlSettings.cpp */; };
+		01C1D99516555DE200F85EF4 /* ofxImageMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C1D99316555DE200F85EF4 /* ofxImageMap.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
-		E4328149138ABC9F0047C5CB /* openFrameworks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworks.a */; };
+		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
 		E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9730E8CC7DD009D7055 /* AudioToolbox.framework */; };
@@ -63,9 +63,7 @@
 
 /* Begin PBXFileReference section */
 		017F74EA1511122700E9B9DA /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = data; path = bin/data; sourceTree = "<group>"; };
-		0180F36C1577DDA8001B3838 /* magnumPacmanDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = magnumPacmanDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		01A1110A15911B0E001423A9 /* imageMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = imageMap.cpp; sourceTree = "<group>"; };
-		01A1110B15911B0E001423A9 /* imageMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = imageMap.h; sourceTree = "<group>"; };
+		0180F36C1577DDA8001B3838 /* imagemapBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imagemapBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A1110C15911B0E001423A9 /* mapItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapItem.h; sourceTree = "<group>"; };
 		01AF05641510E004005F28FF /* install.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = install.xml; sourceTree = "<group>"; };
 		01AF05661510E004005F28FF /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
@@ -74,6 +72,8 @@
 		01AF05691510E004005F28FF /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		01AF056B1510E004005F28FF /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		01AF056C1510E004005F28FF /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
+		01C1D99316555DE200F85EF4 /* ofxImageMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImageMap.cpp; sourceTree = "<group>"; };
+		01C1D99416555DE200F85EF4 /* ofxImageMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxImageMap.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -102,7 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */,
-				E4328149138ABC9F0047C5CB /* openFrameworks.a in Frameworks */,
+				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
 				E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */,
 				E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */,
 				E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */,
@@ -124,8 +124,8 @@
 		01A1110915911B0E001423A9 /* ofxImagemap */ = {
 			isa = PBXGroup;
 			children = (
-				01A1110A15911B0E001423A9 /* imageMap.cpp */,
-				01A1110B15911B0E001423A9 /* imageMap.h */,
+				01C1D99316555DE200F85EF4 /* ofxImageMap.cpp */,
+				01C1D99416555DE200F85EF4 /* ofxImageMap.h */,
 				01A1110C15911B0E001423A9 /* mapItem.h */,
 			);
 			name = ofxImagemap;
@@ -202,7 +202,7 @@
 		E4328144138ABC890047C5CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E4328148138ABC890047C5CB /* openFrameworks.a */,
+				E4328148138ABC890047C5CB /* openFrameworksDebug.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				E45BE5980E8CC70C009D7055 /* frameworks */,
-				0180F36C1577DDA8001B3838 /* magnumPacmanDebug.app */,
+				0180F36C1577DDA8001B3838 /* imagemapBuilder.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -268,7 +268,7 @@
 			);
 			name = imagemapBuilder;
 			productName = myOFApp;
-			productReference = 0180F36C1577DDA8001B3838 /* magnumPacmanDebug.app */;
+			productReference = 0180F36C1577DDA8001B3838 /* imagemapBuilder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -303,10 +303,9 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		E4328148138ABC890047C5CB /* openFrameworks.a */ = {
+		E4328148138ABC890047C5CB /* openFrameworksDebug.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			name = openFrameworks.a;
 			path = openFrameworksDebug.a;
 			remoteRef = E4328147138ABC890047C5CB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -340,7 +339,7 @@
 				01AF056E1510E004005F28FF /* tinyxmlerror.cpp in Sources */,
 				01AF056F1510E004005F28FF /* tinyxmlparser.cpp in Sources */,
 				01AF05701510E004005F28FF /* ofxXmlSettings.cpp in Sources */,
-				01A1110D15911B0E001423A9 /* imageMap.cpp in Sources */,
+				01C1D99516555DE200F85EF4 /* ofxImageMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +378,7 @@
 					"-D__MACOSX_CORE__",
 					"-lpthread",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -409,7 +408,7 @@
 					"-D__MACOSX_CORE__",
 					"-lpthread",
 				);
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};
@@ -497,7 +496,7 @@
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/Volumes/BOOTCAMP/Users/Kris/Documents/Visual Studio 2010/Projects/of_preRelease_v007_vs2010/addons/ofxTweener/example/bin\"";
 				PREBINDING = NO;
-				PRODUCT_NAME = magnumPacmanDebug;
+				PRODUCT_NAME = imagemapBuilder;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -585,7 +584,7 @@
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"/Volumes/BOOTCAMP/Users/Kris/Documents/Visual Studio 2010/Projects/of_preRelease_v007_vs2010/addons/ofxTweener/example/bin\"";
 				PREBINDING = NO;
-				PRODUCT_NAME = magnumPacman;
+				PRODUCT_NAME = imagemapBuilder;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

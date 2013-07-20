@@ -12,13 +12,12 @@
 #include "ofxXmlSettings.h"
 #include "mapItem.h"
 
-class imageMap{
+class ofxImageMap{
 private:
 	ofxXmlSettings XML;
     
     ofMesh mapMesh;
     ofTexture mapTexture;
-    void rebuildMesh();
     
     string mapfile;
     string imagePath;
@@ -30,22 +29,25 @@ private:
     void handleToggleRelease(ofMouseEventArgs& args);
     void handleNormalRelease(ofMouseEventArgs& args);
 
-    
+    string getXMLFileName(string imagePath);
+    void loadXML(string mapFile);
+
 public:
-    imageMap();
-    ~imageMap();
+    ofxImageMap();
+    ~ofxImageMap();
     
-    void setup(string newMapFile,string newImagePath);
-    void setup(float x,float y,string newMapFile,string newImagePath);
-    void setup(float x,float y,string newMapFile,string newImagePath,bool toggle);
+    void setup(string newImagePath);
+    void setup(float x,float y,string newImagePath);
+    void setup(float x,float y,string newImagePath,bool toggle);
     void setup();
     
-    void loadXML(string mapFile);
     void saveXML();
-    void loadImage(string imagePath);
-    
-    string getXMLFileName();
+    void loadFromImage(string imagePath);
+    void rebuildMesh();
+
     string getImageFileName();
+    
+    void setPosition(ofVec2f newPosition);
     
     void draw();
     void drawFullImage();
@@ -62,7 +64,6 @@ public:
         
     float height;
     float width;
-    bool isToggle;
 
 
 
