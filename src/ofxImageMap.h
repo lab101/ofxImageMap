@@ -9,6 +9,7 @@
 #ifndef imageMap_imageMap_h
 #define imageMap_imageMap_h
 
+#include "ofmain.h"
 #include "ofxXmlSettings.h"
 #include "mapItem.h"
 
@@ -28,6 +29,7 @@ private:
     
     void handleToggleRelease(ofMouseEventArgs& args);
     void handleNormalRelease(ofMouseEventArgs& args);
+	ofRectangle translateToWorldCord(ofRectangle rect);
 
     string getXMLFileName(string imagePath);
     void loadXML(string mapFile);
@@ -64,6 +66,8 @@ public:
         
     float height;
     float width;
+	float scale;
+    bool isToggle;
 
 
 
