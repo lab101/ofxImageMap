@@ -1,11 +1,12 @@
 # Exclude the build directory
 build/*
-example/bin/mapBuilder.app/*
-example/bin/mapBuilder.app/*
 
+mapBuilder/bin/*.*
+example/bin/*.*
 
 #OS junk files
-[Tt]humbs.db
+[Tt]humbs.db/bin
+
 *.DS_Store
 
 #Visual Studio files
@@ -32,7 +33,6 @@ example/bin/mapBuilder.app/*
 *.unsuccessfulbuild
 ipch/
 obj/
-[Bb]in
 [Dd]ebug*/
 [Rr]elease*/
 

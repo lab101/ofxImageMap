@@ -1,0 +1,10 @@
+<settings>
+    <boxes>
+        <box toggle="0" command="a">4,3,90,90</box>
+        <box toggle="0" command="z">97,6,87,86</box>
+        <box toggle="0" command="e">188,4,85,89</box>
+        <box toggle="0" command="r">278,3,84,86</box>
+        <box toggle="0" command="123">4,275,181,87</box>
+        <box toggle="0" command="space">188,277,536,85</box>
+    </boxes>
+</settings>

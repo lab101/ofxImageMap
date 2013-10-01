@@ -172,7 +172,7 @@ void mainWindow::mousePressed(int x, int y, int button){
         return;
     }else if(currentState == CONFIG)
     {
-        cout << "recording" << endl ;
+        //cout << "recording" << endl ;
 
         activeRectangle.set(x , y, 0, 0);
     }

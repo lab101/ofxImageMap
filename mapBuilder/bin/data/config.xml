@@ -1,0 +1,9 @@
+<settings>
+    <toggle>1</toggle>
+    <boxes>
+        <box command="CONFIG">8,4,143,59</box>
+        <box command="REMOVE">155,5,138,58</box>
+        <box command="TEST">296,4,138,60</box>
+        <box command="SAVE">439,5,144,56</box>
+    </boxes>
+</settings>
